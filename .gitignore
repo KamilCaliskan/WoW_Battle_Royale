@@ -1,0 +1,40 @@
+# Build directories
+build/
+bin/
+lib/
+obj/
+
+# CMake files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Temporary files
+*.log
+*.tmp
+*.swp
+*.swo
+
+# IDE / editor files
+.vscode/
+.idea/
+*.kate-swp
+
+# MySQL files (optional)
+*.sql
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Other unnecessary files
+*.o
+*.a
+*.so
+
