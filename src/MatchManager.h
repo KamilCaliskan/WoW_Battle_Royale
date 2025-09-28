@@ -17,6 +17,8 @@ public:
     void addPlayer(Player p);
     void update();
     bool isMatchOver();
+    void printWinner();
+    void logToFile(const std::string &msg);
 };
 
 #endif

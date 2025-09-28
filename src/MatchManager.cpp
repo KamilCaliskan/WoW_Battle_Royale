@@ -1,5 +1,7 @@
 #include "MatchManager.h"
 #include <iostream>
+#include <fstream>
+#include <cstdlib>
 
 MatchManager::MatchManager() : safeZone(100) {
     tickCount = 0;
@@ -11,35 +13,67 @@ void MatchManager::addPlayer(Player p) {
 
 void MatchManager::update() {
     tickCount++;
-    std::cout << "Tick " << tickCount << "\n";
+    std::cout << "\nTick " << tickCount << "\n";
+    logToFile("Tick " + std::to_string(tickCount));
 
-    // SafeZone shrinks every 2 ticks
-    if (tickCount % 2 == 0) {
+    // Shrink safe zone every 3 ticks
+    if (tickCount % 3 == 0) {
         safeZone.shrink();
+        std::cout << "SafeZone shrinks! New radius: " << safeZone.radius << "\n";
+        logToFile("SafeZone shrinks! Radius: " + std::to_string(safeZone.radius));
     }
 
-    // Loop through players
     for (auto &player : players) {
         if (!player.alive) continue;
 
-        // Chance player takes damage
-        if (rand() % 5 == 0) {
-            player.takeDamage(20);
-            std::cout << player.name << " took damage! Health: " << player.health << "\n";
+        // Outside safe zone = damage
+        if (safeZone.radius < 70 && rand() % 2 == 0) {
+            player.takeDamage(15);
+            std::cout << player.name << " took zone damage! HP: " << player.health << "\n";
+            logToFile(player.name + " took zone damage! HP: " + std::to_string(player.health));
         }
 
-        // Chance player finds loot
+        // Random combat damage
+        if (rand() % 5 == 0) {
+            player.takeDamage(20);
+            std::cout << player.name << " took combat damage! HP: " << player.health << "\n";
+            logToFile(player.name + " took combat damage! HP: " + std::to_string(player.health));
+        }
+
+        // Random loot
         if (rand() % 3 == 0) {
             std::string loot = lootManager.getRandomLoot();
-            std::cout << player.name << " found loot: " << loot << "\n";
+            player.addLoot(loot);
+            std::cout << player.name << " picked up: " << loot << "\n";
+            logToFile(player.name + " picked up: " + loot);
         }
     }
 }
 
 bool MatchManager::isMatchOver() {
     int aliveCount = 0;
-    for (auto &player : players) {
-        if (player.alive) aliveCount++;
+    for (auto &p : players) {
+        if (p.alive) aliveCount++;
     }
     return aliveCount <= 1;
+}
+
+void MatchManager::printWinner() {
+    for (auto &p : players) {
+        if (p.alive) {
+            std::cout << "\nWinner: " << p.name << "\nInventory: ";
+            logToFile("Winner: " + p.name);
+            for (auto &item : p.inventory) {
+                std::cout << item << " ";
+                logToFile("Item: " + item);
+            }
+            std::cout << "\n";
+        }
+    }
+}
+
+void MatchManager::logToFile(const std::string &msg) {
+    std::ofstream log("battle_log.txt", std::ios::app);
+    log << msg << "\n";
+    log.close();
 }
