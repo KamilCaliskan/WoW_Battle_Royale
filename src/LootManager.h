@@ -4,12 +4,18 @@
 #include <string>
 #include <vector>
 
-class LootManager {
-public:
-    std::vector<std::string> lootTable;
-
-    LootManager();
-    std::string getRandomLoot();
+struct Item {
+    std::string name;
+    int attack;   // added attack power
+    int defense;  // added defense value
+    int heal;     // healing amount (if consumable)
 };
 
-#endif
+class LootManager {
+public:
+    std::vector<Item> lootTable;
+    LootManager();
+    Item getRandomLoot();
+};
+
+#endif // LOOTMANAGER_H

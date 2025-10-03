@@ -13,48 +13,75 @@ void MatchManager::addPlayer(Player p) {
 
 void MatchManager::update() {
     tickCount++;
-    std::cout << "\nTick " << tickCount << "\n";
-    logToFile("Tick " + std::to_string(tickCount));
+    std::string t = "Tick " + std::to_string(tickCount);
+    std::cout << "\n" << t << "\n";
+    logToFile(t);
 
     // Shrink safe zone every 3 ticks
     if (tickCount % 3 == 0) {
         safeZone.shrink();
-        std::cout << "SafeZone shrinks! New radius: " << safeZone.radius << "\n";
-        logToFile("SafeZone shrinks! Radius: " + std::to_string(safeZone.radius));
+        std::string s = "SafeZone shrinks! Radius: " + std::to_string(safeZone.radius);
+        std::cout << s << "\n";
+        logToFile(s);
     }
 
+    // Attempt loot pickups first
     for (auto &player : players) {
         if (!player.alive) continue;
-
-        // Outside safe zone = damage
-        if (safeZone.radius < 70 && rand() % 2 == 0) {
-            player.takeDamage(15);
-            std::cout << player.name << " took zone damage! HP: " << player.health << "\n";
-            logToFile(player.name + " took zone damage! HP: " + std::to_string(player.health));
-        }
-
-        // Random combat damage
-        if (rand() % 5 == 0) {
-            player.takeDamage(20);
-            std::cout << player.name << " took combat damage! HP: " << player.health << "\n";
-            logToFile(player.name + " took combat damage! HP: " + std::to_string(player.health));
-        }
-
-        // Random loot
         if (rand() % 3 == 0) {
-            std::string loot = lootManager.getRandomLoot();
+            Item loot = lootManager.getRandomLoot();
             player.addLoot(loot);
-            std::cout << player.name << " picked up: " << loot << "\n";
-            logToFile(player.name + " picked up: " + loot);
+            std::string s = player.name + " picked up: " + loot.name;
+            std::cout << s << "\n";
+            logToFile(s);
+        }
+    }
+
+    // PvP: choose attacker/target pairs
+    std::vector<int> aliveIdx;
+    for (size_t i = 0; i < players.size(); ++i) if (players[i].alive) aliveIdx.push_back((int)i);
+
+    if (aliveIdx.size() >= 2) {
+        // choose number of interactions this tick (1..alive/2)
+        int interactions = 1 + (rand() % std::max(1, (int)aliveIdx.size() / 2));
+        for (int k = 0; k < interactions; ++k) {
+            if (aliveIdx.size() < 2) break;
+            int a_i = aliveIdx[rand() % aliveIdx.size()];
+            int b_i = a_i;
+            while (b_i == a_i) b_i = aliveIdx[rand() % aliveIdx.size()];
+
+            Player &attacker = players[a_i];
+            Player &target = players[b_i];
+
+            // chance to attack
+            if (rand() % 100 < 70) { // 70% chance attack occurs
+                int beforeHP = target.health;
+                attacker.attack(target);
+                int dmg = beforeHP - target.health;
+                std::string s = attacker.name + " attacked " + target.name + " for " + std::to_string(dmg) + " dmg";
+                std::cout << s << "\n";
+                logToFile(s);
+            }
+        }
+    }
+
+    // Zone damage if zone small: moderate chance
+    if (safeZone.radius < 60) {
+        for (auto &player : players) {
+            if (!player.alive) continue;
+            if (rand() % 4 == 0) {
+                player.takeDamage(10);
+                std::string s = player.name + " takes zone damage. HP: " + std::to_string(player.health);
+                std::cout << s << "\n";
+                logToFile(s);
+            }
         }
     }
 }
 
 bool MatchManager::isMatchOver() {
     int aliveCount = 0;
-    for (auto &p : players) {
-        if (p.alive) aliveCount++;
-    }
+    for (auto &p : players) if (p.alive) aliveCount++;
     return aliveCount <= 1;
 }
 
@@ -63,9 +90,9 @@ void MatchManager::printWinner() {
         if (p.alive) {
             std::cout << "\nWinner: " << p.name << "\nInventory: ";
             logToFile("Winner: " + p.name);
-            for (auto &item : p.inventory) {
-                std::cout << item << " ";
-                logToFile("Item: " + item);
+            for (auto &it : p.inventory) {
+                std::cout << it.name << " ";
+                logToFile("Item: " + it.name);
             }
             std::cout << "\n";
         }
