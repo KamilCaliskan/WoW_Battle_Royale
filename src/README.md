@@ -1,23 +1,36 @@
-# WoW Battle Royale
+## 🔹 Roadmap 
+### Phase 1 — Foundation (NOW)
 
-This project aims to transform the open-source TrinityCore World of Warcraft server into a Battle Royale game mode.
+* [x] Set up GitHub project.
+* [x] Add simulation framework (C++).
+* [x] Create clean README and roadmap files.
+* [ ] Ensure local TrinityCore build works.
 
-Project overview:
-- Random player spawns across a custom map (13k+ hand-placed models).
-- Loot spawning in designated areas.
-- Shrinking safe zone to force encounters.
-- Last-man-standing win condition.
+### Phase 2 — Plan A (Battle Royale Simulation)
 
-Technical goals:
-- Modify TrinityCore C++ core for match systems.
-- Use SQL scripts for spawns, loot tables, events.
-- Integrate the custom map into client/server.
-- Build match logic for elimination and victory detection.
+* [ ] Expand standalone simulation: PvP combat, loot effects, logs.
+* [ ] Add reproducible test runs (seeds).
+* [ ] Hook simulation logic into TrinityCore (replace battleground loop).
+* [ ] Integrate safe zone + elimination in real WoW map.
 
-Challenges:
-- Heavy C++ core work required.
-- Performance and balancing on large maps.
-- Legal/asset constraints if the project goes public.
+### Phase 3 — Plan B (High-Risk MMO)
 
+* [ ] Import custom continent (map).
+* [ ] Add new items, NPCs, spells (SQL + DB scripts).
+* [ ] Implement death-drop system: players drop gold/inventory on PvP death.
+* [ ] Balance loot, mobs, PvP zones.
+* [ ] Remove/disable vanilla content not needed.
 
-EOF
+### Phase 4 — Testing & Optimization
+
+* [ ] Local test runs with friends/bots.
+* [ ] Fix server crashes, SQL errors.
+* [ ] Adjust performance for large map & high player count.
+
+### Phase 5 — Release
+
+* [ ] Public test release of High-Risk MMO (Plan B).
+* [ ] Document full setup for contributors.
+* [ ] Keep Plan A (Battle Royale) in experimental branch for devs and learning.
+
+---

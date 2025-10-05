@@ -4,6 +4,7 @@
 class SafeZone {
 public:
     int radius;
+
     SafeZone(int startRadius);
     void shrink();
 };

@@ -1,309 +1,109 @@
 Tick 1
-PlayerOne picked up: Bow
-PlayerFour picked up: Sword
+PlayerOne picked up: Shield
+PlayerTwo picked up: Iron Armor
+PlayerThree picked up: Battle Axe
+PlayerOne attacked PlayerFive for 7 dmg
 Tick 2
-PlayerOne picked up: Potion
-PlayerFour took combat damage! HP: 80
+PlayerFour picked up: Iron Armor
+PlayerTwo attacked PlayerOne for 1 dmg
 Tick 3
 SafeZone shrinks! Radius: 90
+PlayerOne picked up: Rusty Sword
+PlayerThree picked up: Rusty Sword
+PlayerFive picked up: Small Potion
 Tick 4
-PlayerTwo took combat damage! HP: 80
-PlayerTwo picked up: Armor
-PlayerThree took combat damage! HP: 80
-PlayerThree picked up: Shield
+PlayerOne picked up: Small Potion
+PlayerFour picked up: Hunting Bow
+PlayerFour attacked PlayerThree for 20 dmg
+PlayerOne attacked PlayerFive for 15 dmg
 Tick 5
-PlayerTwo picked up: Shield
-PlayerThree took combat damage! HP: 60
-PlayerFour picked up: Potion
+PlayerFive picked up: Shield
+PlayerThree attacked PlayerFour for 31 dmg
 Tick 6
 SafeZone shrinks! Radius: 80
-PlayerOne took combat damage! HP: 80
-PlayerThree took combat damage! HP: 40
-PlayerFour picked up: Bow
+PlayerThree picked up: Rusty Sword
+PlayerFour picked up: Iron Armor
+PlayerThree attacked PlayerOne for 42 dmg
 Tick 7
-PlayerOne picked up: Potion
-PlayerTwo picked up: Bow
-PlayerFour took combat damage! HP: 60
-PlayerFour picked up: Shield
+PlayerTwo picked up: Shield
+PlayerThree picked up: Leather Armor
 Tick 8
-PlayerOne picked up: Potion
-PlayerTwo took combat damage! HP: 60
-PlayerTwo picked up: Bow
+PlayerFive picked up: Battle Axe
+PlayerFive attacked PlayerFour for 14 dmg
 Tick 9
 SafeZone shrinks! Radius: 70
-PlayerOne picked up: Shield
-PlayerTwo picked up: Bow
+PlayerOne picked up: Hunting Bow
+PlayerTwo picked up: Hunting Bow
 Tick 10
-PlayerOne picked up: Bow
-PlayerThree picked up: Shield
+PlayerThree picked up: Iron Armor
+PlayerFive picked up: Iron Armor
+PlayerThree attacked PlayerFive for 33 dmg
 Tick 11
-PlayerTwo took combat damage! HP: 40
-PlayerTwo picked up: Sword
+PlayerThree picked up: Small Potion
+PlayerFour picked up: Leather Armor
+PlayerFive picked up: Small Potion
+PlayerOne attacked PlayerTwo for 17 dmg
 Tick 12
 SafeZone shrinks! Radius: 60
-PlayerOne took zone damage! HP: 65
-PlayerOne took combat damage! HP: 45
-PlayerTwo took zone damage! HP: 25
-PlayerThree took combat damage! HP: 20
-PlayerThree picked up: Bow
+PlayerOne attacked PlayerThree for 20 dmg
+PlayerOne attacked PlayerFive for 20 dmg
 Tick 13
-PlayerOne took zone damage! HP: 30
-PlayerOne took combat damage! HP: 10
-PlayerOne picked up: Armor
-PlayerTwo took combat damage! HP: 5
-PlayerTwo picked up: Armor
-PlayerThree took zone damage! HP: 5
-PlayerThree took combat damage! HP: 0
-PlayerFour took zone damage! HP: 45
-PlayerFour took combat damage! HP: 25
+PlayerTwo picked up: Hunting Bow
+PlayerThree picked up: Small Potion
 Tick 14
-PlayerOne took zone damage! HP: 0
-PlayerOne picked up: Potion
+PlayerFive picked up: Hunting Bow
 Tick 15
 SafeZone shrinks! Radius: 50
-PlayerTwo took zone damage! HP: 0
-PlayerTwo picked up: Armor
-PlayerFour took zone damage! HP: 10
-PlayerFour picked up: Armor
-Winner: PlayerFour
-Item: Sword
-Item: Potion
-Item: Bow
-Item: Shield
-Item: Armor
-Tick 1
-PlayerTwo picked up: Potion
-Tick 2
-PlayerOne took combat damage! HP: 80
-PlayerOne picked up: Shield
-PlayerThree took combat damage! HP: 80
-PlayerThree picked up: Armor
-Tick 3
-SafeZone shrinks! Radius: 90
-PlayerThree picked up: Potion
-Tick 4
-PlayerTwo took combat damage! HP: 80
-PlayerFour took combat damage! HP: 80
-Tick 5
-PlayerTwo picked up: Shield
-PlayerFour picked up: Potion
-Tick 6
-SafeZone shrinks! Radius: 80
-PlayerFour picked up: Bow
-Tick 7
-PlayerTwo took combat damage! HP: 60
-PlayerTwo picked up: Bow
-Tick 8
-PlayerOne picked up: Armor
-PlayerThree picked up: Potion
-PlayerFour picked up: Sword
-Tick 9
-SafeZone shrinks! Radius: 70
-PlayerOne picked up: Sword
-Tick 10
-PlayerTwo picked up: Sword
-Tick 11
-PlayerTwo picked up: Shield
-PlayerFour picked up: Sword
-Tick 12
-SafeZone shrinks! Radius: 60
-PlayerTwo picked up: Bow
-PlayerThree took zone damage! HP: 65
-PlayerThree picked up: Potion
-PlayerFour took zone damage! HP: 65
-PlayerFour picked up: Shield
-Tick 13
-PlayerOne took combat damage! HP: 60
-PlayerOne picked up: Bow
-Tick 14
-PlayerOne took zone damage! HP: 45
-PlayerThree took zone damage! HP: 50
-PlayerThree took combat damage! HP: 30
-PlayerThree picked up: Shield
-PlayerFour took zone damage! HP: 50
-PlayerFour picked up: Potion
-Tick 15
-SafeZone shrinks! Radius: 50
-PlayerOne took zone damage! HP: 30
-PlayerOne picked up: Shield
-PlayerTwo took zone damage! HP: 45
+PlayerTwo picked up: Leather Armor
+PlayerFour picked up: Hunting Bow
+PlayerOne attacked PlayerTwo for 13 dmg
+PlayerThree takes zone damage. HP: 50
+PlayerFive takes zone damage. HP: 15
 Tick 16
-PlayerOne took zone damage! HP: 15
-PlayerTwo took zone damage! HP: 30
-PlayerTwo picked up: Sword
-PlayerThree picked up: Sword
+PlayerThree picked up: Small Potion
+PlayerOne attacked PlayerThree for 20 dmg
+PlayerOne takes zone damage. HP: 47
 Tick 17
-PlayerOne took zone damage! HP: 0
+PlayerOne picked up: Small Potion
+PlayerTwo picked up: Leather Armor
+PlayerThree attacked PlayerOne for 39 dmg
+PlayerOne takes zone damage. HP: 0
+PlayerThree takes zone damage. HP: 20
 Tick 18
 SafeZone shrinks! Radius: 40
-PlayerThree took zone damage! HP: 15
-PlayerFour took zone damage! HP: 35
+PlayerTwo picked up: Leather Armor
+PlayerFive picked up: Leather Armor
+PlayerTwo takes zone damage. HP: 60
+PlayerFive takes zone damage. HP: 5
 Tick 19
-PlayerTwo took zone damage! HP: 15
-PlayerThree picked up: Sword
-PlayerFour took combat damage! HP: 15
+PlayerThree picked up: Iron Armor
+PlayerFour picked up: Leather Armor
+PlayerFive picked up: Hunting Bow
+PlayerTwo attacked PlayerThree for 11 dmg
 Tick 20
-PlayerThree took combat damage! HP: 0
-PlayerThree picked up: Sword
+PlayerThree picked up: Leather Armor
+PlayerFour picked up: Rusty Sword
+PlayerFive attacked PlayerThree for 9 dmg
+PlayerThree attacked PlayerTwo for 0 dmg
+Tick 21
+SafeZone shrinks! Radius: 30
+PlayerTwo takes zone damage. HP: 50
+PlayerFour takes zone damage. HP: 45
+Tick 22
+PlayerTwo picked up: Rusty Sword
+PlayerFour attacked PlayerFive for 5 dmg
+Tick 23
+PlayerTwo attacked PlayerFour for 19 dmg
+Tick 24
+SafeZone shrinks! Radius: 20
+PlayerTwo attacked PlayerFour for 16 dmg
+PlayerFour takes zone damage. HP: 0
 Winner: PlayerTwo
-Item: Potion
+Item: Iron Armor
 Item: Shield
-Item: Bow
-Item: Sword
-Item: Shield
-Item: Bow
-Item: Sword
-Winner: PlayerFour
-Item: Potion
-Item: Bow
-Item: Sword
-Item: Sword
-Item: Shield
-Item: Potion
-Tick 1
-PlayerOne picked up: Bow
-PlayerFour took combat damage! HP: 80
-PlayerFour picked up: Bow
-Tick 2
-PlayerOne took combat damage! HP: 80
-PlayerThree picked up: Potion
-Tick 3
-SafeZone shrinks! Radius: 90
-PlayerFour picked up: Sword
-Tick 4
-PlayerTwo took combat damage! HP: 80
-Tick 5
-PlayerTwo picked up: Sword
-Tick 6
-SafeZone shrinks! Radius: 80
-Tick 7
-PlayerOne took combat damage! HP: 60
-PlayerOne picked up: Bow
-PlayerThree picked up: Shield
-Tick 8
-PlayerThree picked up: Sword
-Tick 9
-SafeZone shrinks! Radius: 70
-PlayerThree took combat damage! HP: 80
-PlayerFour picked up: Shield
-Tick 10
-PlayerTwo picked up: Potion
-PlayerThree took combat damage! HP: 60
-PlayerFour picked up: Shield
-Tick 11
-Tick 12
-SafeZone shrinks! Radius: 60
-PlayerOne took zone damage! HP: 45
-PlayerTwo took zone damage! HP: 65
-PlayerTwo picked up: Shield
-PlayerFour took combat damage! HP: 60
-Tick 13
-PlayerOne took zone damage! HP: 30
-PlayerThree took zone damage! HP: 45
-PlayerThree took combat damage! HP: 25
-PlayerFour took zone damage! HP: 45
-Tick 14
-PlayerOne took zone damage! HP: 15
-PlayerTwo took zone damage! HP: 50
-PlayerThree took zone damage! HP: 10
-PlayerFour took zone damage! HP: 30
-Tick 15
-SafeZone shrinks! Radius: 50
-PlayerThree took zone damage! HP: 0
-PlayerFour took zone damage! HP: 15
-Tick 16
-PlayerOne took zone damage! HP: 0
-PlayerTwo picked up: Bow
-PlayerFour picked up: Potion
-Tick 17
-PlayerTwo took zone damage! HP: 35
-Tick 18
-SafeZone shrinks! Radius: 40
-PlayerFour took zone damage! HP: 0
-Winner: PlayerTwo
-Item: Sword
-Item: Potion
-Item: Shield
-Item: Bow
-Tick 1
-PlayerOne picked up: Bow
-PlayerThree took combat damage! HP: 80
-PlayerFour took combat damage! HP: 80
-Tick 2
-PlayerOne picked up: Armor
-PlayerTwo picked up: Potion
-Tick 3
-SafeZone shrinks! Radius: 90
-Tick 4
-PlayerThree picked up: Potion
-PlayerFour picked up: Potion
-Tick 5
-PlayerOne took combat damage! HP: 80
-PlayerTwo took combat damage! HP: 80
-PlayerThree picked up: Potion
-PlayerFour picked up: Sword
-Tick 6
-SafeZone shrinks! Radius: 80
-PlayerOne picked up: Bow
-PlayerFour took combat damage! HP: 60
-Tick 7
-PlayerOne picked up: Sword
-PlayerThree picked up: Bow
-Tick 8
-PlayerOne picked up: Potion
-PlayerTwo picked up: Sword
-PlayerThree took combat damage! HP: 60
-Tick 9
-SafeZone shrinks! Radius: 70
-PlayerOne picked up: Armor
-PlayerTwo picked up: Bow
-PlayerThree picked up: Armor
-PlayerFour took combat damage! HP: 40
-Tick 10
-PlayerOne took combat damage! HP: 60
-PlayerOne picked up: Bow
-PlayerThree picked up: Armor
-PlayerFour picked up: Shield
-Tick 11
-Tick 12
-SafeZone shrinks! Radius: 60
-PlayerOne took zone damage! HP: 45
-PlayerTwo took zone damage! HP: 65
-PlayerTwo took combat damage! HP: 45
-PlayerThree picked up: Potion
-PlayerFour picked up: Armor
-Tick 13
-PlayerOne took zone damage! HP: 30
-PlayerOne took combat damage! HP: 10
-PlayerTwo picked up: Bow
-Tick 14
-PlayerOne took zone damage! HP: 0
-PlayerTwo took zone damage! HP: 30
-PlayerFour picked up: Shield
-Tick 15
-SafeZone shrinks! Radius: 50
-PlayerTwo took combat damage! HP: 10
-PlayerThree took zone damage! HP: 45
-PlayerThree picked up: Bow
-PlayerFour took zone damage! HP: 25
-Tick 16
-PlayerTwo took zone damage! HP: 0
-PlayerTwo picked up: Shield
-PlayerThree took zone damage! HP: 30
-PlayerFour picked up: Bow
-Tick 17
-PlayerThree took combat damage! HP: 10
-PlayerThree picked up: Armor
-PlayerFour took zone damage! HP: 10
-Tick 18
-SafeZone shrinks! Radius: 40
-PlayerFour took zone damage! HP: 0
-Winner: PlayerThree
-Item: Potion
-Item: Potion
-Item: Bow
-Item: Armor
-Item: Armor
-Item: Potion
-Item: Bow
-Item: Armor
+Item: Hunting Bow
+Item: Hunting Bow
+Item: Leather Armor
+Item: Leather Armor
+Item: Leather Armor
+Item: Rusty Sword

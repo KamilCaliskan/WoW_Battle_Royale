@@ -1,106 +1,97 @@
 #include "MatchManager.h"
 #include <iostream>
-#include <fstream>
 #include <cstdlib>
 
-MatchManager::MatchManager() : safeZone(100) {
-    tickCount = 0;
+MatchManager::MatchManager() : currentTick(0), matchRunning(false) {
 }
 
-void MatchManager::addPlayer(Player p) {
-    players.push_back(p);
+void MatchManager::addPlayer(const std::string& name) {
+    players.push_back(Player(name));
+    std::cout << "Added player: " << name << "\n";
+}
+
+void MatchManager::startMatch() {
+    if (players.size() < 2) {
+        std::cout << "Need at least 2 players to start match!\n";
+        return;
+    }
+
+    matchRunning = true;
+    currentTick = 0;
+
+    std::cout << "\n=== MATCH STARTED ===\n";
+    std::cout << "Players: " << players.size() << "\n";
+
+    // Distribute starting loot
+    lootSystem.distributeStartingLoot(players);
+    std::cout << "Starting loot distributed!\n";
 }
 
 void MatchManager::update() {
-    tickCount++;
-    std::string t = "Tick " + std::to_string(tickCount);
-    std::cout << "\n" << t << "\n";
-    logToFile(t);
+    if (!matchRunning) return;
 
-    // Shrink safe zone every 3 ticks
-    if (tickCount % 3 == 0) {
-        safeZone.shrink();
-        std::string s = "SafeZone shrinks! Radius: " + std::to_string(safeZone.radius);
-        std::cout << s << "\n";
-        logToFile(s);
+    currentTick++;
+    std::cout << "\n--- Tick " << currentTick << " ---\n";
+
+    // Process combat every few ticks
+    if (currentTick % 2 == 0) {
+        processCombat();
     }
 
-    // Attempt loot pickups first
-    for (auto &player : players) {
-        if (!player.alive) continue;
-        if (rand() % 3 == 0) {
-            Item loot = lootManager.getRandomLoot();
-            player.addLoot(loot);
-            std::string s = player.name + " picked up: " + loot.name;
-            std::cout << s << "\n";
-            logToFile(s);
+    printMatchStatus();
+}
+
+void MatchManager::processCombat() {
+    std::vector<Player*> alivePlayers;
+
+    // Collect alive players
+    for (auto& player : players) {
+        if (player.alive) {
+            alivePlayers.push_back(&player);
         }
     }
 
-    // PvP: choose attacker/target pairs
-    std::vector<int> aliveIdx;
-    for (size_t i = 0; i < players.size(); ++i) if (players[i].alive) aliveIdx.push_back((int)i);
+    if (alivePlayers.size() < 2) return;
 
-    if (aliveIdx.size() >= 2) {
-        // choose number of interactions this tick (1..alive/2)
-        int interactions = 1 + (rand() % std::max(1, (int)aliveIdx.size() / 2));
-        for (int k = 0; k < interactions; ++k) {
-            if (aliveIdx.size() < 2) break;
-            int a_i = aliveIdx[rand() % aliveIdx.size()];
-            int b_i = a_i;
-            while (b_i == a_i) b_i = aliveIdx[rand() % aliveIdx.size()];
+    // Simple combat: first alive player attacks random other player
+    Player* attacker = alivePlayers[0];
+    Player* target = nullptr;
 
-            Player &attacker = players[a_i];
-            Player &target = players[b_i];
-
-            // chance to attack
-            if (rand() % 100 < 70) { // 70% chance attack occurs
-                int beforeHP = target.health;
-                attacker.attack(target);
-                int dmg = beforeHP - target.health;
-                std::string s = attacker.name + " attacked " + target.name + " for " + std::to_string(dmg) + " dmg";
-                std::cout << s << "\n";
-                logToFile(s);
-            }
+    // Find a different alive player to attack
+    for (int i = 1; i < alivePlayers.size(); i++) {
+        if (alivePlayers[i] != attacker) {
+            target = alivePlayers[i];
+            break;
         }
     }
 
-    // Zone damage if zone small: moderate chance
-    if (safeZone.radius < 60) {
-        for (auto &player : players) {
-            if (!player.alive) continue;
-            if (rand() % 4 == 0) {
-                player.takeDamage(10);
-                std::string s = player.name + " takes zone damage. HP: " + std::to_string(player.health);
-                std::cout << s << "\n";
-                logToFile(s);
-            }
-        }
+    if (attacker && target) {
+        int attackPower = attacker->getTotalAttack();
+        int defense = target->getTotalDefense();
+        int damage = std::max(1, attackPower - defense);
+
+        std::cout << attacker->name << " attacks " << target->name
+        << " for " << damage << " damage!\n";
+
+        target->takeDamage(damage);
     }
 }
 
-bool MatchManager::isMatchOver() {
+bool MatchManager::isMatchOver() const {
     int aliveCount = 0;
-    for (auto &p : players) if (p.alive) aliveCount++;
+    for (const auto& player : players) {
+        if (player.alive) aliveCount++;
+    }
     return aliveCount <= 1;
 }
 
-void MatchManager::printWinner() {
-    for (auto &p : players) {
-        if (p.alive) {
-            std::cout << "\nWinner: " << p.name << "\nInventory: ";
-            logToFile("Winner: " + p.name);
-            for (auto &it : p.inventory) {
-                std::cout << it.name << " ";
-                logToFile("Item: " + it.name);
-            }
-            std::cout << "\n";
-        }
+void MatchManager::printMatchStatus() const {
+    std::cout << "Current Status:\n";
+    for (const auto& player : players) {
+        player.printStatus();
     }
-}
 
-void MatchManager::logToFile(const std::string &msg) {
-    std::ofstream log("battle_log.txt", std::ios::app);
-    log << msg << "\n";
-    log.close();
-}
+    if (isMatchOver()) {
+        std::cout << "\n=== MATCH OVER ===\n";
+        for (const auto& player : players) {
+            if

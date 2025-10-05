@@ -2,23 +2,25 @@
 #define MATCHMANAGER_H
 
 #include "Player.h"
-#include "SafeZone.h"
-#include "LootManager.h"
+#include "LootSystem.h"
 #include <vector>
 
 class MatchManager {
-public:
+private:
     std::vector<Player> players;
-    SafeZone safeZone;
-    LootManager lootManager;
-    int tickCount;
+    LootSystem lootSystem;
+    int currentTick;
+    bool matchRunning;
 
+public:
     MatchManager();
-    void addPlayer(Player p);
+
+    void addPlayer(const std::string& name);
+    void startMatch();
     void update();
-    bool isMatchOver();
-    void printWinner();
-    void logToFile(const std::string &msg);
+    void processCombat();
+    bool isMatchOver() const;
+    void printMatchStatus() const;
 };
 
 #endif

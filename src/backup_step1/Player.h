@@ -23,10 +23,8 @@ public:
 
     void takeDamage(int damage);
     void addItem(const Item& item);
-
     int getTotalAttack() const;
     int getTotalDefense() const;
-
     void printStatus() const;
 };
 

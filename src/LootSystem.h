@@ -10,8 +10,8 @@ private:
 
 public:
     LootSystem();
-    Item getRandomItem();
-    void distributeStartingLoot(std::vector<Player>& players);
+    Item generateRandomItem();
+    void distributeLoot(Player& player);
 };
 
 #endif
